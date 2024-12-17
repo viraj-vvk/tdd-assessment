@@ -1,6 +1,7 @@
 package org.tdd.assessment;
 
 public class StringCalculator {
-    public static void main(String[] args) {
+    public static long add(String str) {
+        return Long.MIN_VALUE;
     }
 }
