@@ -13,7 +13,7 @@ public class StringCalculator {
         String delimiter = ",|\n";
         Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(str);
         if (matcher.matches()) {
-            delimiter = matcher.group(1);
+            delimiter = Pattern.quote(matcher.group(1));
             str = matcher.group(2);
         }
         return Arrays.stream(str.split(delimiter)).map(Long::parseLong).reduce(0L, Long::sum);
