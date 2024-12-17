@@ -7,8 +7,8 @@ import static org.junit.Assert.fail;
 
 public class StringCalculatorTest {
 
-    private static final String NUMBERS = "6,5,1,2,3,20,74,108,529,639,5210,74108,52963,321079,654123,7412398,5478962";
-    private static final int SUM = 14_000_230;
+    private static final String NUMBERS = "6,5,1,2,3,20,74,108,529,639,521,0,741,999,529,63,32,10,79,654,123,741,23,98,547,89,62";
+    private static final int SUM = 6698;
 
     @Test
     public void test_add_whenInput_emptyString_thenOutput_zero() {
@@ -55,4 +55,8 @@ public class StringCalculatorTest {
         }
     }
 
+    @Test
+    public void test_add_whenInput_numbersWithGreaterThan1000_thenOutput_sum_excluding_GreaterValuesThan1000() {
+        assertEquals("Test failed while sending values greater than 1000 and expecting sum excluding values greater than 1000", 2, StringCalculator.add("1000,2"));
+    }
 }
