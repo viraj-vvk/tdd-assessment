@@ -19,7 +19,10 @@ public class StringCalculator {
             delimiter = Pattern.quote(matcher.group(1));
             str = matcher.group(2);
         }
-        Map<Boolean, List<Long>> filteredValues = Arrays.stream(str.split(delimiter)).map(Long::parseLong).collect(Collectors.groupingBy(val -> val < 0));
+        Map<Boolean, List<Long>> filteredValues = Arrays.stream(str.split(delimiter))
+                .map(Long::parseLong)
+                .filter(val -> val < 1000)
+                .collect(Collectors.groupingBy(val -> val < 0));
         List<Long> negativeValues = filteredValues.get(true);
         if (Objects.nonNull(negativeValues)) {
             throw new RuntimeException(String.format("negative numbers not allowed : %s", negativeValues.stream().map(String::valueOf).collect(Collectors.joining(","))));
