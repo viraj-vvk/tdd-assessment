@@ -20,4 +20,9 @@ public class StringCalculatorTest {
         assertEquals("Test failed while sending two comma separated numbers and expecting sum", 6, StringCalculator.add("1,5"));
     }
 
+    @Test
+    public void test_add_whenInput_multipleNumbersCommaSeparated_thenOutput_sum() {
+        assertEquals("Test failed while sending multiple comma separated numbers and expecting sum", 14_000_230, StringCalculator.add("6,5,1,2,3,20,74,108,529,639,5210,74108,52963,321079,654123,7412398,5478962"));
+    }
+
 }
