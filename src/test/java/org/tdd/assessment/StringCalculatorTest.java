@@ -34,4 +34,9 @@ public class StringCalculatorTest {
         assertEquals("Test failed while sending ',' and '\\n' delimited numbers and expecting sum", SUM * 2, StringCalculator.add(String.format("%s\n%s", NUMBERS, NUMBERS.replaceAll(",", "\n"))));
     }
 
+    @Test
+    public void test_add_whenInput_multipleNumbersWithCustomDelimiter_thenOutput_sum() {
+        assertEquals(SUM, StringCalculator.add(String.format("//;\n%s", NUMBERS.replace(",", ";"))));
+    }
+
 }
