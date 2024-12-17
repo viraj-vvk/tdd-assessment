@@ -8,6 +8,6 @@ public class StringCalculator {
         if (Objects.isNull(str) || str.isEmpty()) {
             return 0;
         }
-        return Arrays.stream(str.split(",")).map(Long::parseLong).reduce(0L, Long::sum);
+        return Arrays.stream(str.split(",|\n")).map(Long::parseLong).reduce(0L, Long::sum);
     }
 }
