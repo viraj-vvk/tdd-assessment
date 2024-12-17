@@ -15,4 +15,9 @@ public class StringCalculatorTest {
         assertEquals("Test failed while sending single number and expecting same value", 1, StringCalculator.add("1"));
     }
 
+    @Test
+    public void test_add_whenInput_twoNumbersCommaSeparated_thenOutput_sum() {
+        assertEquals("Test failed while sending two comma separated numbers and expecting sum", 6, StringCalculator.add("1,5"));
+    }
+
 }
