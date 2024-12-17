@@ -3,6 +3,7 @@ package org.tdd.assessment;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class StringCalculatorTest {
 
@@ -42,6 +43,16 @@ public class StringCalculatorTest {
     @Test
     public void test_add_whenInput_multipleNumbersWithSpecialCharacterCustomDelimiter_thenOutput_sum() {
         assertEquals("Test failed while sending custom delimited numbers and expecting sum", SUM, StringCalculator.add(String.format("//.\n%s", NUMBERS.replace(",", "."))));
+    }
+
+    @Test
+    public void test_add_whenInput_containsMultipleNumbers_then_exception_contains_negativeNumbers() {
+        try {
+            StringCalculator.add("-1,2,-3");
+            fail("Test case failed while sending including negative numbers and expecting exception");
+        } catch (RuntimeException exception) {
+            assertEquals("Test case failed while sending including negative numbers and expecting exception with negative numbers", "negative numbers not allowed : -1,-3", exception.getMessage());
+        }
     }
 
 }
