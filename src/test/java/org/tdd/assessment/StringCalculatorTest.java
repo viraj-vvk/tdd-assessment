@@ -36,7 +36,12 @@ public class StringCalculatorTest {
 
     @Test
     public void test_add_whenInput_multipleNumbersWithCustomDelimiter_thenOutput_sum() {
-        assertEquals(SUM, StringCalculator.add(String.format("//;\n%s", NUMBERS.replace(",", ";"))));
+        assertEquals("Test failed while sending custom delimited numbers and expecting sum", SUM, StringCalculator.add(String.format("//;\n%s", NUMBERS.replace(",", ";"))));
+    }
+
+    @Test
+    public void test_add_whenInput_multipleNumbersWithSpecialCharacterCustomDelimiter_thenOutput_sum() {
+        assertEquals("Test failed while sending custom delimited numbers and expecting sum", SUM, StringCalculator.add(String.format("//.\n%s", NUMBERS.replace(",", "."))));
     }
 
 }
