@@ -1,5 +1,6 @@
 package org.tdd.assessment;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class StringCalculator {
@@ -7,7 +8,6 @@ public class StringCalculator {
         if (Objects.isNull(str) || str.isEmpty()) {
             return 0;
         }
-        String[] numbers = str.split(",");
-        return numbers.length > 1 ? Long.parseLong(numbers[0]) + Long.parseLong(numbers[1]) : Long.parseLong(numbers[0]);
+        return Arrays.stream(str.split(",")).map(Long::parseLong).reduce(0L, Long::sum);
     }
 }
